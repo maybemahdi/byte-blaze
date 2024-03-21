@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Hero = () => {
   return (
     <div>
-      <section className=" text-black">
+      <section className="">
         <div className="container mx-auto flex flex-col items-center px-4 py-48 lg:py-[120px] text-center md:py-32 md:px-10 lg:px-32 xl:max-w-3xl">
           <h1 className="text-5xl w-3/4 md:w-full font-bold leading-none sm:text-5xl">
             Welcome to
