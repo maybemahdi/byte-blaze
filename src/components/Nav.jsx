@@ -29,7 +29,7 @@ const Nav = () => {
           <NavLink
             to="/"
             className={({ isActive, isPending }) =>
-              isActive ? "text-primary" : isPending ? "pending" : "text-black"
+              isActive ? "text-primary" : isPending ? "pending" : ""
             }
           >
             Home
@@ -37,7 +37,7 @@ const Nav = () => {
           <NavLink
             to="/blogs"
             className={({ isActive, isPending }) =>
-              isActive ? "text-primary" : isPending ? "pending" : "text-black"
+              isActive ? "text-primary" : isPending ? "pending" : ""
             }
           >
             Blogs
@@ -45,7 +45,7 @@ const Nav = () => {
           <NavLink
             to="/bookmarks"
             className={({ isActive, isPending }) =>
-              isActive ? "text-primary" : isPending ? "pending" : "text-black"
+              isActive ? "text-primary" : isPending ? "pending" : ""
             }
           >
             Bookmarks

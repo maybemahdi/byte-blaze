@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import coverAlt from "../assets/404.jpg";
+import { MdDeleteForever } from "react-icons/md";
 
-const Blog = ({ blog }) => {
+const Blog = ({ blog, deletable, handleDelete }) => {
   const { id, title, description, published_at, cover_image } = blog;
+  
   return (
-    <div className="bg-gray-900 rounded-md hover:scale-105 transition-all duration-300">
+    <div className="bg-gray-900 relative rounded-md hover:scale-105 transition-all duration-300">
       <Link
         to={`/blog/${id}`}
         className="max-w-sm mx-auto group hover:no-underline focus:no-underline bg-gray-900 rounded-md"
@@ -24,6 +26,11 @@ const Blog = ({ blog }) => {
           <p>{description}</p>
         </div>
       </Link>
+      {deletable && (
+        <div onClick={() => handleDelete(id)} className="ml-8 absolute -top-4 -right-4 cursor-pointer hover:scale-105 duration-300 transition bg-primary p-[12px] rounded-full">
+          <MdDeleteForever color="#EE03F9" size={20} />
+        </div>
+      )}
     </div>
   );
 };

@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Link, Outlet, useLoaderData } from "react-router-dom";
+import { BsFillBookmarkStarFill } from "react-icons/bs";
+import { saveBlog } from "../components/local";
 
 const BlogDetails = () => {
   const blogDetail = useLoaderData();
@@ -11,15 +13,18 @@ const BlogDetails = () => {
     public_reactions_count,
     published_at,
   } = blogDetail;
+  const handleBookmark = (blog) => {
+    saveBlog(blog)
+  };
   return (
     <div className="min-h-[calc(100vh-142px)]">
       <div className="px-6 py-16 mx-auto space-y-12 w-full lg:w-[60%]">
-        <article className="space-y-8 text-black">
+        <article className="space-y-8">
           <div className="space-y-6">
-            <h1 className="text-4xl text-black font-bold md:tracking-tight md:text-5xl">
+            <h1 className="text-4xl font-bold md:tracking-tight md:text-5xl">
               {title}
             </h1>
-            <div className="flex flex-col items-start justify-between w-full md:flex-row md:items-center text-black">
+            <div className="flex flex-col items-start justify-between w-full md:flex-row md:items-center">
               <div className="flex items-center md:space-x-2">
                 <p>{reading_time_minutes} min read</p>
                 <p className="text-sm">
@@ -73,6 +78,12 @@ const BlogDetails = () => {
                 </svg>
                 <span>Author</span>
               </Link>
+              <div
+                onClick={() => handleBookmark(blogDetail)}
+                className="ml-8 cursor-pointer hover:scale-105 duration-300 transition bg-[#bd64e771] p-[12px] rounded-full"
+              >
+                <BsFillBookmarkStarFill color="#EE03F9" size={20} />
+              </div>
             </div>
           </div>
           <Outlet />
